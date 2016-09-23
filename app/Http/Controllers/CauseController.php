@@ -1,27 +1,39 @@
-<?php
+<?php 
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Cause;
+use App\Http\Requests\CauseRequest;
+//use Illuminate\Http\Request;
+use Request;
 
-use App\Http\Requests;
+class CauseController extends Controller {
 
-class CauseController extends Controller
-{
+  /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
-        return view('causes.index');
+      $causes = Cause::all();
+      return view('causes.index',compact('causes'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -31,56 +43,72 @@ class CauseController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function store(Request $request)
+    public function store(CauseRequest $request)
     {
-        //
+          //$user_create_id=Auth::user()->id;
+          $cause = Cause::create($request->all());
+
+          \Session::flash('flash_message','Cause successfully added.'); //<--FLASH MESSAGE
+
+          if (Request::wantsJson()){
+              return $cause;
+          }else{              
+                
+               return redirect()->action('CauseController@publish',['cause'=>$cause]);       
+          }
     }
 
     /**
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function show($id)
     {
-        //
+      
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function edit($id)
     {
-        //
+      
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        //
+      
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function destroy($id)
     {
-        //
+      
     }
+
+    public function publish($cause){
+          return view('causes.publish');
+    }
+      
+  
 }
+
+?>

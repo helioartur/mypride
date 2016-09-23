@@ -14,6 +14,7 @@
 
 
 @section('main-content')
+    @include('layouts.shared.alert')
 	<div class="row">
 	    <div class="col-lg-12 col-xs-6">
 	        <div class="box box-default">
@@ -32,7 +33,7 @@
 		                <thead>
 		                  <tr>
 		                    <th style="width: 10px">#</th>
-		                    <th>Name</th>
+		                    <th>Title</th>
 		                    <th>Start Date</th>
 		                    <th>End Date</th>
 		                    <th>Location</th>
@@ -40,7 +41,27 @@
 		                  </tr>
 		                </thead>
 		                <tbody>
-		                 
+		                 	@foreach ($causes as $cause)
+  								<tr>
+  								    <td></td>
+  									<td>{{$cause->title}}</td>
+  									<td>{{$cause->start_date}}</td>
+  									<td>{{$cause->end_date}}</td>
+  									<td>{{$cause->location_id }}</td>
+  									<td> 							                          
+                                        <button type="button" class="btn btn-xs btn-warning btn-flat" data-toggle="modal" data-target="#confirmDelete" data-toggle="tooltip" title="Delete"data-product_id="{{ $cause->id }}" data-product_name="{{ $cause->id }}">
+				                            <i class="fa fa-trash"></i>
+				                        </button> 
+				                        <a href="{{ route('causes.edit',$cause->id) }}" class="btn btn-primary btn-xs", data-toggle="tooltip" title="Editar" data-remote='true'])>   <i class="fa fa-edit"></i>
+                                        </a> 
+
+				                        <a href="{{ url('causes/result/') }}/{{$cause->id}}" target="_blank" class="btn btn-primary btn-xs", data-toggle="tooltip" title="Cause Result" ])>   <i class="fa fa-rocket"></i>
+                                        </a>
+                                        <a href="{{ route('causes.edit',$cause->id) }}" class="btn btn-primary btn-xs", data-toggle="tooltip" title="Share" data-remote='true'])>   <i class="fa  fa-share"></i>
+                                        </a>
+                                    </td>
+  								</tr>
+							@endforeach
 		                <tbody>     
                     </table>
 	            </div>

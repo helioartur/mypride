@@ -1,16 +1,18 @@
 <div class="row">   
-    <div class="col-lg-6">
+    <input name="location_id" id="location_id" type="hidden" value="11111">
+    <input name="user_create_id" id="user_create_id" type="hidden" value="{{Auth::user()->id}}">
+    <div class="col-lg-4">
         <div class="col-lg-12">
             <a href="#" class="thumbnail">
-                <img src="http://placehold.it/650x500" alt="...">
+                <img  src="/img/boxed-bg.jpg"  alt="...">
             </a>
         </div>
     </div>
-    <div class="col-lg-6">
+    <div class="col-lg-8">
         <div class="col-lg-12 col-md-4 col-sm-6">
     		<div class="form-group form-group-sm">
-    			{!! Form::label('name','Name:') !!}
-    			{!! Form::text('name', null, ['class'=>'form-control']) !!}
+    			{!! Form::label('title','Title:') !!}
+    			{!! Form::text('title', null, ['class'=>'form-control']) !!}
     		</div>
     	</div>
         
@@ -29,8 +31,13 @@
         <div class="col-lg-12">
             <div class="form-group">
                 {!! Form::label('description','Description:') !!}
-                {!! Form::textarea('note', null, ['class'=>'form-control','rows'=>'3','style'=>'width: 100%;'])  !!}
+                {!! Form::textarea('description', null, ['class'=>'form-control','rows'=>'3','style'=>'width: 100%;'])  !!}
             </div> 
         </div>  
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        {!! Form::submit($submitButtonText, ['class'=>'btn btn-primary pull-right'])  !!}           
     </div>
 </div>

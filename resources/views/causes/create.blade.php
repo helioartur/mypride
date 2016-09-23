@@ -14,14 +14,15 @@
 
 
 @section('main-content')
+    @include('layouts.shared.alert')
 	<div class="row">
 	    <div class="col-lg-12">
-	        <div class="box box-default">
+	        <div class="box box-primary">
 	            <div class="box-header with-border">
 	              <h3 class="box-title">
 	              	 <strong>{{ trans('adminlte_lang::message.new_cause') }}
 	              </h3>
-	              <div class="pull-right box-tools">
+	              <!--<div class="pull-right box-tools">
 	                    <a href="{{ url('causes') }}" class="btn btn-primary btn-sm" role="button"    data-toggle="tooltip" title="Voltar">
 	                       <i class="fa  fa-arrow-left"></i>
 	                    </a>
@@ -33,7 +34,9 @@
 	            </div><!-- /.box-header -->
 	  
 	            <div class="box-body">
-	                 @include('causes.form', array(''=>''))
+	                {!! Form::open(['route'=>'causes.store', 'id'=>'causes-form']) !!}
+	                    @include('causes.form',array('submitButtonText'=>'Add cause'))
+	                {!! Form::close() !!}
 	            </div>
 	        </div>
 	    </div>
