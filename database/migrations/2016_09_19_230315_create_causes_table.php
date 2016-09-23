@@ -16,7 +16,7 @@ class CreateCausesTable extends Migration
         Schema::create('causes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->data('start_date');
+            $table->date('start_date');
             $table->date('end_date');
             $table->integer('location_id');
             $table->string('location_desc');
