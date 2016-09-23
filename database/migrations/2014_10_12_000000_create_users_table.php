@@ -25,6 +25,20 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+        /*Schema::table('cause_helpers', function(Blueprint $table){
+            $table->integer('user_id')->unsigned()->index()->default(1);
+            $table->foreign('user_id')
+                  ->references('id')
+                  ->on('users');
+        });
+
+        Schema::table('cause_owners', function(Blueprint $table){
+            $table->integer('user_id')->unsigned()->index()->default(1);
+            $table->foreign('user_id')
+                  ->references('id')
+                  ->on('users');
+        });*/
     }
 
     /**
