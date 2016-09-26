@@ -29,7 +29,7 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<body class="skin-blue sidebar-mini ">
+<body class="skin-blue layout-boxed ">
 <div class="wrapper">
 
     @include('layouts.partials.mainheader')
@@ -39,7 +39,6 @@ desired effect
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
 
-        @include('layouts.partials.contentheader')
 
         <!-- Main content -->
         <section class="content">
@@ -48,7 +47,6 @@ desired effect
         </section><!-- /.content -->
     </div><!-- /.content-wrapper -->
 
-    @include('layouts.partials.controlsidebar')
 
     @include('layouts.partials.footer')
 
