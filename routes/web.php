@@ -25,6 +25,8 @@ Route::group(['middleware' => ['web']], function(){
 
 });
 
+Route::get('auth/profile', 'Auth\RegisterController@redirectToProvider');
+
 Route::get('auth/facebook', 'Auth\RegisterController@redirectToProvider');
 Route::get('auth/facebook/callback', 'Auth\RegisterController@handleProviderCallback');
 

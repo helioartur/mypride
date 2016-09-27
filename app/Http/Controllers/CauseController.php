@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Cause;
 use App\Http\Requests\CauseRequest;
+use Illuminate\Support\Facades\DB;
 //use Illuminate\Http\Request;
 use Request;
 
@@ -105,7 +106,11 @@ class CauseController extends Controller {
     }
 
     public function publish($cause){
-          return view('causes.publish');
+
+          $cause = DB::table('causes')
+                  ->where('causes.id','=',$cause)
+                  ->get();
+          return view('causes.publish',compact('cause'));
     }
       
   
