@@ -55,7 +55,7 @@
 				                        <a href="{{ route('causes.edit',$cause->id) }}" class="btn btn-primary btn-xs", data-toggle="tooltip" title="Editar" data-remote='true'])>   <i class="fa fa-edit"></i>
                                         </a> 
 
-				                        <a href="{{ url('causes/result/') }}/{{$cause->id}}" target="_blank" class="btn btn-primary btn-xs", data-toggle="tooltip" title="Cause Result" ])>   <i class="fa fa-rocket"></i>
+				                        <a href="{{ url('cause/result') }}" class="btn btn-primary btn-xs", data-toggle="tooltip" title="Cause Result" ])>   <i class="fa fa-rocket"></i>
                                         </a>
                                         <a href="{{ route('causes.edit',$cause->id) }}" class="btn btn-primary btn-xs", data-toggle="tooltip" title="Share" data-remote='true'])>   <i class="fa  fa-share"></i>
                                         </a>

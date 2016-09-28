@@ -14,18 +14,21 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/logout', 'Auth\LoginController@logout');
+
 Route::GET('causes/publish/{cause}', 'CauseController@publish');
 Route::group(['middleware' => ['web']], function(){
-	Route::resource('causes', 'CauseController');
-	Route::resource('causeowners', 'CauseOwnersController');
-	Route::resource('causehelpers', 'CauseHelpersController');
-	Route::resource('causecontribution', 'CauseContributionController');
-	Route::resource('causeresult', 'CauseResultController');
+	Route::resource('causes', 'Cause\CauseController');
+	Route::resource('causeowners', 'Cause\CauseOwnersController');
+	Route::resource('causehelpers', 'Cause\CauseHelpersController');
+	Route::resource('causecontribution', 'Cause\CauseContributionController');
+	Route::resource('cause/result', 'Cause\CauseResultController');
 	Route::resource('document', 'DocumentController');
 
 });
 
-Route::get('auth/profile', 'Auth\RegisterController@redirectToProvider');
+
 
 Route::get('auth/facebook', 'Auth\RegisterController@redirectToProvider');
 Route::get('auth/facebook/callback', 'Auth\RegisterController@handleProviderCallback');
