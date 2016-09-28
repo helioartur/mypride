@@ -6,10 +6,15 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'CreateCauseContributionsTable' => $baseDir . '/database/migrations/2016_09_21_010347_create_cause_contributions_table.php',
-    'CreateCauseHelpersTable' => $baseDir . '/database/migrations/2016_09_21_010244_create_cause_helpers_table.php',
-    'CreateCauseOwnersTable' => $baseDir . '/database/migrations/2016_09_21_010417_create_cause_owners_table.php',
-    'CreateCausesTable' => $baseDir . '/database/migrations/2016_09_19_230315_create_causes_table.php',
+    'AlterCauseResulUpdTable' => $baseDir . '/database/migrations/2016_09_28_162944_alter_cause_resul_upd_table.php',
+    'AlterContributionsTable' => $baseDir . '/database/migrations/2016_09_28_160229_alter_contributions_table.php',
+    'CreateCauseContributionsTable' => $baseDir . '/database/migrations/2016_09_21_234354_create_cause_contributions_table.php',
+    'CreateCauseOwnersTable' => $baseDir . '/database/migrations/2016_09_21_234354_create_cause_owners_table.php',
+    'CreateCauseResultsTable' => $baseDir . '/database/migrations/2016_09_21_234354_create_cause_results_table.php',
+    'CreateCausesTable' => $baseDir . '/database/migrations/2016_09_21_234354_create_causes_table.php',
+    'CreateCuaseHelpersTable' => $baseDir . '/database/migrations/2016_09_21_234354_create_cuase_helpers_table.php',
+    'CreateDocumentsTable' => $baseDir . '/database/migrations/2016_09_21_234354_create_documents_table.php',
+    'CreateForeignKeys' => $baseDir . '/database/migrations/2016_09_21_234404_create_foreign_keys.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',

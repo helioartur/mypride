@@ -1,6 +1,8 @@
 <?php 
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Cause;
+use App\Models\CauseResult;
+use App\Http\Controllers\Controller;
 
 class CauseResultController extends Controller {
 
@@ -11,7 +13,7 @@ class CauseResultController extends Controller {
    */
   public function index()
   {
-    
+     return view('causes.result.index');
   }
 
   /**

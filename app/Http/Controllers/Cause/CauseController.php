@@ -1,11 +1,12 @@
 <?php 
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Cause;
 
-use App\Cause;
+use App\Models\Cause;
 use App\Http\Requests\CauseRequest;
 use Illuminate\Support\Facades\DB;
 //use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Request;
 
 class CauseController extends Controller {
@@ -57,7 +58,7 @@ class CauseController extends Controller {
               return $cause;
           }else{              
                 
-               return redirect()->action('CauseController@publish',['cause'=>$cause]);       
+               return redirect()->action('Cause\CauseController@publish',['cause'=>$cause]);       
           }
     }
 

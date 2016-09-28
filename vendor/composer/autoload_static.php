@@ -324,10 +324,15 @@ class ComposerStaticInit1204dc8da6af779a598181384dd8a8d8
     );
 
     public static $classMap = array (
-        'CreateCauseContributionsTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_21_010347_create_cause_contributions_table.php',
-        'CreateCauseHelpersTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_21_010244_create_cause_helpers_table.php',
-        'CreateCauseOwnersTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_21_010417_create_cause_owners_table.php',
-        'CreateCausesTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_19_230315_create_causes_table.php',
+        'AlterCauseResulUpdTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_28_162944_alter_cause_resul_upd_table.php',
+        'AlterContributionsTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_28_160229_alter_contributions_table.php',
+        'CreateCauseContributionsTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_21_234354_create_cause_contributions_table.php',
+        'CreateCauseOwnersTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_21_234354_create_cause_owners_table.php',
+        'CreateCauseResultsTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_21_234354_create_cause_results_table.php',
+        'CreateCausesTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_21_234354_create_causes_table.php',
+        'CreateCuaseHelpersTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_21_234354_create_cuase_helpers_table.php',
+        'CreateDocumentsTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_21_234354_create_documents_table.php',
+        'CreateForeignKeys' => __DIR__ . '/../..' . '/database/migrations/2016_09_21_234404_create_foreign_keys.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',

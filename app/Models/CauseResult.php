@@ -1,13 +1,13 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class CauseContribution extends Model {
+class CauseResult extends Model {
 
-	protected $table = 'cause_contributions';
+	protected $table = 'cause_results';
 	public $timestamps = true;
 
 	use SoftDeletes;
