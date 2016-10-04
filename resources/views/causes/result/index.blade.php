@@ -161,7 +161,7 @@
         </div><!-- /.col -->
         <div class="col-md-8">
               <!-- Cause -->
-            {!! Form::open(['route'=>'causes.store', 'id'=>'causes-result']) !!}
+            {!! Form::open(['route'=>'document.store', 'id'=>'causes-result']) !!}
                 <div class="box box-primary">
                     <div class="box-header with-border">
                         <h3 class="box-title">Add Cause Result</h3>
