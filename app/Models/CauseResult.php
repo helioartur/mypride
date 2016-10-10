@@ -14,4 +14,11 @@ class CauseResult extends Model {
 
 	protected $dates = ['deleted_at'];
 
+	protected $fillable = ['cause_id','title','user_create_id','description'];
+
+	public function cause()
+	{
+		return $this->hasOne('App\Models\Cause');
+	}
+
 }

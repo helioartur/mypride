@@ -1,6 +1,6 @@
 <div class="row">   
     <input name="location_id" id="location_id" type="hidden" value="11111">
-    <input name="user_create_id" id="user_create_id" type="hidden" value="{{Auth::user()->id}}">
+    
     <div class="col-lg-4">
         <div class="col-lg-12">
             <a href="#" class="thumbnail">

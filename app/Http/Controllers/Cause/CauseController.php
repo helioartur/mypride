@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 //use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Request;
+use Auth;
 
 class CauseController extends Controller {
 
@@ -50,7 +51,15 @@ class CauseController extends Controller {
     public function store(CauseRequest $request)
     {
           //$user_create_id=Auth::user()->id;
-          $cause = Cause::create($request->all());
+          //$cause = Cause::create($request->all());
+        $cause = new Cause();
+        $cause->title =$request->title;
+        $cause->description =$request->description;
+        $cause->end_date =$request->end_date;
+        $cause->start_date =$request->start_date;
+        $cause->location_id =$request->location_id;
+        $cause->user_create_id =Auth::user()->id;
+        $cause->save();
 
           \Session::flash('flash_message','Cause successfully added.'); //<--FLASH MESSAGE
 
@@ -58,7 +67,7 @@ class CauseController extends Controller {
               return $cause;
           }else{              
                 
-               return redirect()->action('Cause\CauseController@publish',['cause'=>$cause]);       
+               return redirect('cause/publish/'.$cause->id);       
           }
     }
 

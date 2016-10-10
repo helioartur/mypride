@@ -12,6 +12,7 @@ return [
     | these language lines according to your application's requirements.
     |
     */  
+    'lock'                    =>'Lock',
     'app_name'                => 'myPride',
     'list_cause'              => 'Cause List',
     'new_cause'               => 'New Cause',

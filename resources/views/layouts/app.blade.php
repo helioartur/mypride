@@ -35,11 +35,13 @@ desired effect
     @include('layouts.partials.mainheader')
 
     @include('layouts.partials.sidebar')
+    
+   
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
 
-
+         @include('layouts.partials.contentheader')
         <!-- Main content -->
         <section class="content">
             <!-- Your Page Content Here -->

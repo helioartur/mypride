@@ -17,22 +17,26 @@ Route::get('/', function () {
 
 Route::get('/logout', 'Auth\LoginController@logout');
 
-Route::GET('causes/publish/{cause}', 'CauseController@publish');
-
-	
+Route::GET('cause/publish/{cause}', 'Cause\CauseController@publish');
+Route::resource('auth/profile', 'Auth\ProfileController');
+// usage inside a laravel route
+Route::post('upload','Auth\ProfileController@update_avatar');	
 
 
 
 Route::get('auth/facebook', 'Auth\RegisterController@redirectToProvider');
 Route::get('auth/facebook/callback', 'Auth\RegisterController@handleProviderCallback');
+Route::resource('auth/profile', 'Auth\ProfileController');
 
 
-Route::group(['prefix' => 'admin'], function() {
+Route::group(['middleware' => ['web']], function(){
     Route::resource('causes',  'Cause\CauseController');
 	Route::resource('causeowners', 'Cause\CauseOwnersController');
 	Route::resource('causehelpers', 'Cause\CauseHelpersController');
 	Route::resource('causecontribution', 'Cause\CauseContributionController');
-	Route::resource('cause/result', 'Cause\CauseResultController');
+	Route::resource('cause/{cause}/result', 'Cause\CauseResultController');
+	Route::resource('cause_result', 'Cause\CauseResultController');
 	Route::resource('document', 'DocumentController');
+	Route::resource('document/upload', 'DocumentController@multiple_upload');
 });
 

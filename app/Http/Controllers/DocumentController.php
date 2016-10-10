@@ -1,8 +1,25 @@
 <?php 
 
 namespace App\Http\Controllers;
+use Illuminate\Http\Request;
+use App\Document;
+use Input;
+use Response;
+use Validator;
+use Image;
+use Auth;
 
 class DocumentController extends Controller {
+
+  /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
   /**
    * Display a listing of the resource.
@@ -76,6 +93,54 @@ class DocumentController extends Controller {
   public function destroy($id)
   {
     
+  }
+
+  public function multiple_upload() {
+
+      $document = new Document();
+
+      // getting all of the post data 
+      $files = Input::file('images');
+      
+      // Making counting of uploaded images
+      $file_count = count($files);
+
+      // start count how many uploaded
+      $uploadcount = 0;
+
+      foreach($files as $file) {
+
+          $rules = array('file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'); //'required|mimes:png,gif,jpeg,txt,pdf,doc'
+          $validator = Validator::make(array('file'=> $file), $rules);
+          
+          if($validator->passes()){
+
+              $filename  = time() . '.' . $file->getClientOriginalExtension();
+
+              $path = public_path('uploads/' . $filename);
+
+              $realpath = $file->getRealPath();              
+
+              // open an image file
+              $img = Image::make($file);
+
+              $img->save($path);
+
+              $document->name = $path;
+              $document->fullpath = $realpath;
+              $document->user_create_id = Auth::user()->id;  
+              $document->mimetype=$img->mime();          
+
+              $uploadcount ++;
+          }
+      }
+
+      if($uploadcount == $file_count){
+          return Response::json(['success'=>'true']);
+      } 
+      else {
+          return Response::json(['success'=>'false']);
+      }
   }
   
 }

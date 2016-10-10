@@ -8,7 +8,11 @@
         @if (! Auth::guest())
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="{{asset('/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image" />
+                    @if(Auth::user()->avatar_url)
+                        <img  src="/uploads/{{Auth::user()->avatar_url}}" class="img-circle" alt="Cinque Terre" >
+                    @else
+                        <img  src="/img/user2-160x160.jpg" class="img-circle" alt="Cinque Terre" >
+                    @endif
                 </div>
                 <div class="pull-left info">
                     <p>{{ Auth::user()->name }}</p>
@@ -35,7 +39,7 @@
             <!-- Optionally, you can add icons to the links -->
             <li class="active"><a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.home') }}</span></a></li>
             <li><a href="{{ url('causes') }}"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.cause') }}</span></a></li>
-            <li><a href="{{ url(Auth::user()->name.'/causes') }}"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.cause') }}</span></a></li>
+            
             <li class="treeview">
                 <a href="#"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.multilevel') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
